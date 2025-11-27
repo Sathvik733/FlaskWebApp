@@ -50,12 +50,12 @@ jobs:
       uses: docker/login-action@v2
       with:
         username: ${{ secrets.sathvik733 }}
-        password: ${{ secrets.Sathvik@0910 }}
+        password: ${{ secrets['Sathvik@0910'] }}
 
     - name: Build and Push Image
       run: |
         docker build -t ${{ secrets.sathvik733 }}/devops:${{ github.sha }} .
-        docker push ${{ secrets.Sathvik@0910 }}/devops:${{ github.sha }}
+        docker push ${{ secrets['Sathvik@0910'] }}/devops:${{ github.sha }}
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
